@@ -13,7 +13,12 @@
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif
+}
 
 body{
 background:#f5f8ff;
@@ -21,7 +26,6 @@ color:#0f172a;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
 .bg{
 position:fixed;
 inset:0;
@@ -32,14 +36,12 @@ radial-gradient(circle at 80% 30%, rgba(124,58,237,0.10), transparent 45%),
 radial-gradient(circle at 50% 80%, rgba(34,211,238,0.08), transparent 50%);
 }
 
-/* CONTAINER */
 .container{
 width:92%;
 max-width:1200px;
 margin:auto;
 }
 
-/* HEADER */
 header{
 position:sticky;
 top:0;
@@ -63,7 +65,6 @@ background:linear-gradient(90deg,#2563eb,#7c3aed,#06b6d4);
 -webkit-text-fill-color:transparent;
 }
 
-/* BUTTON */
 .btn{
 display:inline-block;
 padding:14px 22px;
@@ -74,11 +75,14 @@ text-decoration:none;
 font-weight:600;
 box-shadow:0 12px 30px rgba(37,99,235,0.18);
 transition:.25s;
+border:none;
+cursor:pointer;
 }
 
-.btn:hover{transform:translateY(-2px)}
+.btn:hover{
+transform:translateY(-2px)
+}
 
-/* HERO */
 .hero{
 text-align:center;
 padding:120px 20px 80px;
@@ -106,14 +110,12 @@ border:1px solid #e5e7eb;
 box-shadow:0 10px 25px rgba(0,0,0,0.06);
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:22px;
 }
 
-/* CARD */
 .card{
 background:#fff;
 border:1px solid #e5e7eb;
@@ -159,8 +161,9 @@ font-weight:700;
 font-size:14px;
 }
 
-/* SECTION */
-section{padding:80px 0}
+section{
+padding:80px 0
+}
 
 h2{
 text-align:center;
@@ -168,7 +171,6 @@ font-size:34px;
 margin-bottom:40px;
 }
 
-/* ABOUT */
 .about{
 background:#fff;
 border:1px solid #e5e7eb;
@@ -179,7 +181,6 @@ color:#475569;
 line-height:1.6;
 }
 
-/* PROCESS */
 .process{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -194,7 +195,6 @@ padding:16px;
 text-align:center;
 }
 
-/* CTA */
 .cta{
 margin:60px 20px;
 padding:90px 20px;
@@ -205,7 +205,6 @@ color:#fff;
 box-shadow:0 30px 80px rgba(37,99,235,0.25);
 }
 
-/* FLOAT */
 .floating{
 position:fixed;
 bottom:18px;
@@ -232,11 +231,136 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 .wa{background:#25D366}
 .tg{background:#229ED9}
 
-/* MOBILE */
+/* MODAL */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(15,23,42,.72);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:2000;
+backdrop-filter:blur(8px);
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal-box{
+width:100%;
+max-width:480px;
+background:#fff;
+border-radius:24px;
+padding:28px;
+position:relative;
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+animation:show .25s ease;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(20px) scale(.98);
+}
+to{
+opacity:1;
+transform:none;
+}
+}
+
+.modal-close{
+position:absolute;
+right:16px;
+top:12px;
+border:none;
+background:none;
+font-size:30px;
+cursor:pointer;
+color:#64748b;
+}
+
+.modal h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.modal p{
+color:#64748b;
+margin-bottom:22px;
+}
+
+.form-group{
+margin-bottom:16px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+.form-group input,
+.form-group textarea{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:1px solid #cbd5e1;
+font-size:16px;
+outline:none;
+transition:.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+border-color:#2563eb;
+box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+
+.form-group textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.submit-btn{
+width:100%;
+border:none;
+padding:16px;
+border-radius:14px;
+background:linear-gradient(90deg,#2563eb,#7c3aed,#06b6d4);
+color:#fff;
+font-weight:700;
+font-size:16px;
+cursor:pointer;
+transition:.25s;
+}
+
+.submit-btn:hover{
+transform:translateY(-2px);
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#94a3b8;
+}
+
 @media(max-width:900px){
-.hero h1{font-size:32px}
-.grid{grid-template-columns:1fr}
-.process{grid-template-columns:1fr}
+
+.hero h1{
+font-size:34px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.process{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -248,21 +372,36 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 
 <header>
 <div class="container nav">
-<div class="logo">ELECTRO MASTER PRO</div>
-<a class="btn" href="#contact">Вызвать мастера</a>
+
+<div class="logo">
+ELECTRO MASTER PRO
+</div>
+
+<button class="btn open-modal">
+Вызвать мастера
+</button>
+
 </div>
 </header>
 
 <section class="hero">
-<h1>Электрик 24/7 премиум уровня</h1>
-<p>Быстрый выезд • Чистая работа • Гарантия до 3 лет</p>
+
+<h1>
+Электрик 24/7 премиум уровня
+</h1>
+
+<p>
+Быстрый выезд • Чистая работа • Гарантия до 3 лет
+</p>
 
 <div class="hero-box">
 ⚡ Профессиональный инженерный сервис электрики
 </div>
+
 </section>
 
 <section>
+
 <div class="container">
 
 <h2>Услуги</h2>
@@ -270,38 +409,46 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 <div class="grid">
 
 <div class="card">
-<img src="rozetka.jpg" alt="Моя картинка">
+<img src="rozetka.jpg" alt="Розетки и выключатели">
+
 <div class="card-content">
 <h3>Розетки и выключатели</h3>
 <p>Монтаж и замена электроточек</p>
 <div class="price">от 350 ₽</div>
 </div>
+
 </div>
 
 <div class="card">
-<img src="zamena.jpg" alt="Моя картинка">
+<img src="zamena.jpg" alt="Проводка">
+
 <div class="card-content">
 <h3>Проводка</h3>
 <p>Полная замена электросистем</p>
 <div class="price">от 120 ₽/м</div>
 </div>
+
 </div>
 
 <div class="card">
-<img src="panel.jpg" alt="Моя картинка">
+<img src="panel.jpg" alt="Электрощиты">
+
 <div class="card-content">
 <h3>Электрощиты</h3>
 <p>Сборка и диагностика щитов</p>
 <div class="price">от 2500 ₽</div>
 </div>
-</div>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 <section>
+
 <div class="container">
 
 <h2>О нас</h2>
@@ -313,9 +460,11 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 </div>
 
 </div>
+
 </section>
 
 <section>
+
 <div class="container">
 
 <h2>Как мы работаем</h2>
@@ -328,23 +477,176 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 </div>
 
 </div>
+
 </section>
 
- 
 <section class="cta">
-<h2>Нужен электрик прямо сейчас?</h2>
-<p>Оставьте заявку — мастер свяжется за 10 минут</p>
-<a class="btn" href="#contact" style="background:#fff;color:#2563eb;margin-top:20px;">Оставить заявку</a>
+
+<h2>
+Нужен электрик прямо сейчас?
+</h2>
+
+<p>
+Оставьте заявку — мастер свяжется за 10 минут
+</p>
+
+<button class="btn open-modal" style="background:#fff;color:#2563eb;margin-top:20px;">
+Оставить заявку
+</button>
+
 </section>
 
-<footer style="text-align:center;padding:30px;color:#94a3b8;">
+<footer>
 © 2026 Electro Master Pro
 </footer>
 
 <div class="floating">
-<a class="wa" href="https://wa.me/79181585848">🟢</a>
-<a class="tg" href="https://t.me/@xkm02">✈</a>
+
+<a class="wa" href="https://wa.me/79181585848">
+🟢
+</a>
+
+<a class="tg" href="https://t.me/xkm02">
+✈
+</a>
+
 </div>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal" aria-hidden="true">
+
+<div class="modal-box" role="dialog" aria-modal="true">
+
+<button class="modal-close" aria-label="Закрыть">
+×
+</button>
+
+<h3>Оставить заявку</h3>
+
+<p>
+Заполните форму — мастер свяжется с вами в течение 10 минут
+</p>
+
+<form
+action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
+method="POST"
+>
+
+<input type="hidden" name="_captcha" value="false">
+
+<input
+type="hidden"
+name="_subject"
+value="Новая заявка с сайта Electro Master Pro"
+>
+
+<div class="form-group">
+
+<label for="name">
+Ваше имя
+</label>
+
+<input
+id="name"
+type="text"
+name="name"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="phone">
+Телефон
+</label>
+
+<input
+id="phone"
+type="tel"
+name="phone"
+placeholder="+7 (999) 999-99-99"
+required
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="message">
+Комментарий
+</label>
+
+<textarea
+id="message"
+name="message"
+placeholder="Опишите задачу"
+></textarea>
+
+</div>
+
+<button class="submit-btn" type="submit">
+Отправить заявку
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+const modal = document.getElementById('modal');
+
+const openButtons = document.querySelectorAll('.open-modal');
+
+const closeButton = document.querySelector('.modal-close');
+
+openButtons.forEach(button => {
+
+button.addEventListener('click', () => {
+
+modal.classList.add('active');
+
+modal.setAttribute('aria-hidden','false');
+
+document.body.style.overflow='hidden';
+
+});
+
+});
+
+function closeModal(){
+
+modal.classList.remove('active');
+
+modal.setAttribute('aria-hidden','true');
+
+document.body.style.overflow='';
+
+}
+
+closeButton.addEventListener('click', closeModal);
+
+modal.addEventListener('click',(e)=>{
+
+if(e.target===modal){
+closeModal();
+}
+
+});
+
+document.addEventListener('keydown',(e)=>{
+
+if(e.key==='Escape'){
+closeModal();
+}
+
+});
+
+</script>
 
 </body>
 </html>
