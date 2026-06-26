@@ -529,66 +529,78 @@ ELECTRO MASTER PRO
 </p>
 
 <form
-action="https://formsubmit.co/xkm37394@gmail.com"
+action="https://formsubmit.co/ВАШАПОЧТА@gmail.com"
 method="POST"
 >
 
-<input type="hidden" name="_captcha" value="false">
+  <!-- Отключение captcha -->
+  <input type="hidden" name="_captcha" value="false">
 
-<input
-type="hidden"
-name="_subject"
-value="Новая заявка с сайта Electro Master Pro"
->
+  <!-- Красивое оформление письма -->
+  <input type="hidden" name="_template" value="table">
 
-<div class="form-group">
+  <!-- Тема письма -->
+  <input
+    type="hidden"
+    name="_subject"
+    value="Новая заявка с сайта Electro Master Pro"
+  >
 
-<label for="name">
-Ваше имя
-</label>
+  <!-- Возврат обратно на сайт -->
+  <input
+    type="hidden"
+    name="_next"
+    value="https://bbarashev93-a11y.github.io/egor/"
+  >
 
-<input
-id="name"
-type="text"
-name="name"
-required
->
+  <div class="form-group">
 
-</div>
+    <label for="name">
+      Ваше имя
+    </label>
 
-<div class="form-group">
+    <input
+      id="name"
+      type="text"
+      name="name"
+      required
+    >
 
-<label for="phone">
-Телефон
-</label>
+  </div>
 
-<input
-id="phone"
-type="tel"
-name="phone"
-placeholder="+7 (999) 999-99-99"
-required
->
+  <div class="form-group">
 
-</div>
+    <label for="phone">
+      Телефон
+    </label>
 
-<div class="form-group">
+    <input
+      id="phone"
+      type="tel"
+      name="phone"
+      placeholder="+7 (999) 999-99-99"
+      required
+    >
 
-<label for="message">
-Комментарий
-</label>
+  </div>
 
-<textarea
-id="message"
-name="message"
-placeholder="Опишите задачу"
-></textarea>
+  <div class="form-group">
 
-</div>
+    <label for="message">
+      Комментарий
+    </label>
 
-<button class="submit-btn" type="submit">
-Отправить заявку
-</button>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Опишите задачу"
+    ></textarea>
+
+  </div>
+
+  <button class="submit-btn" type="submit">
+    Отправить заявку
+  </button>
 
 </form>
 
